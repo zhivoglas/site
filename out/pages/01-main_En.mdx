@@ -1,0 +1,329 @@
+---
+title: "Название страницы или программы"
+description: "Краткое описание для поисковиков (meta description)"
+keywords: "видеомонтаж, софт, плагины, react, rust"
+image: "https://dl.dropboxusercontent.com/.../cover.webp" # или локальный путь: /images/cover.webp
+schemaType: "soft" # website | video | soft | album | service
+price: "99.99" # Опционально: если есть цена (для soft / service / album)
+currency: "USD" # Опционально: USD, EUR, UAH, RUB
+---
+
+import { useState, useEffect } from 'react';
+
+export const HeroSection = () => {
+  return (
+    <div style={{
+      position: 'relative',
+      width: '100%',
+      maxWidth: '1100px',
+      margin: '0 auto 0rem auto',
+      height: 'clamp(120px, 30vh, 260px)', 
+      borderRadius: '24px',
+      overflow: 'hidden',
+      border: '1px solid rgba(160, 119, 255, 0.3)',
+      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingBottom: '12px',
+    }}>
+      <div style={{
+        position: 'relative',
+        zIndex: 3,
+        padding: '2rem',
+        paddingTop: 'clamp(2rem, 5vw, 4rem)', 
+        width: '100%',
+        maxWidth: '800px',
+        textAlign: 'center',
+        boxSizing: 'border-box'
+      }}>
+        <h1 style={{
+          margin: '0 0 1rem 0',
+          paddingBottom: '12px',
+          lineHeight: '1.2',
+          // Шрифт плавно уменьшается до 2rem на телефонах и растет до 4rem на ПК
+          fontSize: 'clamp(2rem, 6vw, 4rem)',
+          fontWeight: '800',
+          background: 'linear-gradient(to right, #f472b6, #c084fc, #60a5fa)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          letterSpacing: '-0.02em',
+          wordBreak: 'break-word'
+        }}>
+          Zhivoglas Studio
+        </h1>
+        <p style={{
+          margin: '0',
+          // Подзаголовок уменьшается до 1.2rem на телефонах и растет до 2rem на ПК
+          fontSize: 'clamp(1.2rem, 3vw, 2rem)',
+          color: '#cbd5e1',
+          fontWeight: '500',
+          textShadow: '0 2px 8px rgba(0, 0, 0, 0.8)'
+        }}>
+          website template
+        </p>
+      </div>
+    </div>
+  );
+};
+
+
+
+export const DescriptionSection = () => {
+  return (
+    <div style={{
+      padding: '2rem',
+      marginTop: 4,
+    }}>
+      <h2 style={{
+        fontSize: '1.5rem',
+        color: '#f8fafc',
+        marginTop: 1,
+        marginBottom: '1rem',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem'
+      }}>
+        <span style={{ color: '#ec4899' }}>✦</span> О проекте и технологиях
+      </h2>
+      <p style={{ color: '#94a3b8', lineHeight: '1.7', fontSize: '1.025rem', margin: 0 }}>
+        Welcome to Zhivoglas Studio! We'll outsource creative web design to you, and handle complex software development for you 
+        <strong style={{ color: '#c084fc' }}>Next.js, React, Rust (WASM)</strong> and media production.
+        Each project is created with an emphasis on aesthetics, speed, and a unique interactive experience. This isn't just a website template.
+        This is a website with a plugin architecture, allowing you to customize the design or simply change the text, links, or photos.
+        You can share pages or create them yourself with AI. It's incredibly simple, engaging, and fast!
+      </p>
+    </div>
+  );
+};
+
+export const AutoCarousel = () => {
+  const slides = [
+    { title: "Веб-интерфейсы", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80", link: "https://github.com" },
+    { title: "Аудиовизуализация", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80", link: "https://soundcloud.com" },
+    { title: "WASM & Rust", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80", link: "https://rust-lang.org" },
+    { title: "Видеопродакшн", img: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80", link: "https://youtube.com" },
+    { title: "UI/UX Дизайн", img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80", link: "https://dribbble.com" },
+    { title: "PWA Приложения", img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80", link: "https://vercel.com" },
+    { title: "3D & VFX", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80", link: "https://artstation.com" }
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  return (
+    <div style={{ marginBottom: '1rem' }}>
+      <div style={{
+        display: 'flex',
+        justify: 'space-between',
+        alignItems: 'center',
+        marginBottom: '1rem'
+      }}>
+        <h2 style={{ fontSize: '1.5rem', color: '#f8fafc', margin: 0 }}>
+          <span style={{ color: '#3b82f6' }}>◈</span> Галерея работ (Авто-слайдер)
+        </h2>
+        <span style={{ fontSize: '1rem', color: '#64748b' }}></span>
+      </div>
+
+      <style>{`
+        .carousel-container {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          gap: 16px;
+          overflow: hidden;
+          padding: 8px;
+        }
+        @media (min-width: 768px) {
+          .carousel-container {
+            grid-template-columns: repeat(5, 1fr);
+          }
+        }
+        .carousel-card {
+          position: relative;
+          aspect-ratio: 4/3;
+          border-radius: 16px;
+          overflow: hidden;
+          border: 1px solid rgba(107, 197, 250, 0.12);
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+          text-decoration: none;
+          display: block;
+        }
+        .carousel-card:hover {
+          transform: translateY(-6px) scale(1.02);
+          box-shadow: 0 12px 25px rgba(138, 126, 253, 0.4);
+          border-color: rgba(96, 196, 253, 0.6);
+        }
+        .carousel-overlay {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          padding: 1px;
+          padding-left: 16px;
+        }
+      `}</style>
+
+      <div className="carousel-container">
+        {[0, 1, 2, 3, 4].map((offset) => {
+          const slide = slides[(currentIndex + offset) % slides.length];
+          return (
+            <a
+              key={offset}
+              href={slide.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="carousel-card"
+            >
+              <img
+                src={slide.img}
+                alt={slide.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div className="carousel-overlay">
+                <span style={{ color: '#f1f5f9', fontSize: '0,6rem', fontWeight: '500' }}>
+                  {slide.title}
+                </span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export const GridSection = () => {
+  const items = [
+    { title: "GitHub", img: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=500&q=80", 
+    link: "https://github.com" },
+    { title: "Vercel", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80", 
+    link: "https://vercel.com" },
+    { title: "SoundCloud", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80", 
+    link: "https://soundcloud.com" },
+    { title: "YouTube", img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=500&q=80", 
+    link: "https://youtube.com" },
+    { title: "Figma", img: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=500&q=80", 
+    link: "https://figma.com" },
+    { title: "Supabase", img: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=500&q=80", 
+    link: "https://supabase.com" },
+    { title: "Google Play", img: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=500&q=80", 
+    link: "https://play.google.com" },
+    { title: "ArtStation", img: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=500&q=80", 
+    link: "https://artstation.com" }
+  ];
+
+  return (
+    <div>
+      <h2 style={{ fontSize: '1.5rem', color: '#f8fafc', marginBottom: '1.25rem' }}>
+        <span style={{ color: '#10b981' }}>❖</span> Избранные проекты и ресурсы
+      </h2>
+
+      <style>{`
+        .grid-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(2, auto);
+          gap: 16px;
+        }
+        @media (max-width: 767px) {
+          .grid-container {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 6px;
+          }
+        }
+        .grid-card {
+          position: relative;
+          aspect-ratio: 16/9;
+          border-radius: 14px;
+          overflow: hidden;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .grid-card:hover {
+          transform: translateY(-4px);
+          border-color: #10b981;
+          box-shadow: 0 10px 20px rgba(47, 240, 176, 0.46);
+        }
+        .grid-card-overlay {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          padding: 7px;
+          padding-left: 16px;
+        }
+        @media (max-width: 767px) {
+          .grid-card-overlay {
+            padding: 4px;
+          }
+        }
+      `}</style>
+
+      <div className="grid-container">
+        {items.map((item, idx) => (
+          <a
+            key={idx}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="grid-card"
+          >
+            <img
+              src={item.img}
+              alt={item.title}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div className="grid-card-overlay">
+              <span style={{
+                color: '#f8fafc',
+                fontWeight: '600',
+                fontSize: '0.85rem',
+                lineHeight: '1.2'
+              }}>
+                {item.title}
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+<div style={{
+  background: 'linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)',
+  color: '#e2e8f0',
+  fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  padding: '1rem 1rem',
+  borderRadius: '28px',
+  maxWidth: '1100px',
+  margin: '0 auto',
+}}>
+  <HeroSection />
+  <DescriptionSection />
+  <AutoCarousel />
+  <GridSection />
+</div>
+
+Now an expensive site with a complex software architecture is available! Zhivoglas created this template from the most modern software technologies,
+some of which are experimental. It took a lot of time to develop and we have before you a site in which the template is the engine itself.
+You can do all the beauty: design, photos, colors and other things from the interface - everything is easy - yourself.
+
+This is an example of a prompt to create a page from scratch
+
+make a file in .mdx format for the start page of the portfolio with interactive beautiful elements in a multi-colored dark theme (but not completely black).
+take a photo by downloading it from the link below, the description is below, then a carousel that moves with the photo at intervals of 3 seconds (on the phone, 1 slide is visible, and on the PC, 5 are visible)
+and below is a section of 8 photos arranged in 2 rows (2 rows for the phone). All photos must be clickable and translated to resources on the Internet.
+
+After that, you may need to copy some blocks and adjust them a little with the AI. And that's it!
+Or you can simply change the text and links in the finished file in the out folder with the .mdx extension
+
+

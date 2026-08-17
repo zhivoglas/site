@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /wasm/
+Disallow: /404/
+
+Sitemap: https://zhivoglas.com/sitemap.xml
