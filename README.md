@@ -1,52 +1,53 @@
 # site
 website with plugin architecture
 
-# База (Rust Wasm + Next.js App Router + MDX)
+# Core (Rust Wasm + Next.js App Router + MDX)
 
-Страницы рендерятся как статические MDX-файлы (без лишних тяжёлых серверных зависимостей).
+Pages are rendered as static MDX files (without heavy and redundant server-side dependencies).
 
-Использование актуального Tailwind CSS v4 с современным синтаксисом классов (`bg-linear-to-r`, `bg-size-[200%_200%]`).
+Utilizes the latest Tailwind CSS v4 featuring modern class syntax (`bg-linear-to-r`, `bg-size-[200%_200%]`).
 
-## Клиентская интерактивность прямо в MDX
+## Client-Side Interactivity Directly inside MDX
 
-Для автономных UI-элементов (вспомогательные виджеты, динамические кнопки скачивания, обработчики) компоненты описываются и рендерятся прямо внутри `.mdx` файлов с помощью клиентских хуков React (`useState`, `useEffect`).
+For standalone UI elements (helper widgets, dynamic download buttons, event handlers), components are defined and rendered directly inside `.mdx` files using React client hooks (`useState`, `useEffect`).
 
-Это избавляет от необходимости плодить десятки мелких изолированных `.tsx` файлов в папке `components` для каждой мелочи.
+This eliminates the need to clutter the `components` folder with dozens of tiny, isolated `.tsx` files for every minor interface element.
 
-## Rust WebAssembly (Wasm) интеграция
+## Rust WebAssembly (Wasm) Integration
 
-Тяжелая изолированная бизнес-логика (генерация HTML/структур данных, обработка, локальные сервера) вынесена в быстрые Rust-модули.
+Heavy, isolated business logic (HTML generation, data structures parsing, heavy data processing, local servers simulation) is offloaded to high-performance Rust modules.
 
-Rust подготавливает готовые данные или HTML-строки, а клиентский MDX-слой просто принимает их и вставляет в DOM без сложного билда и серверных контроллеров.
+Rust prepares computed data or ready-to-use HTML strings, while the client-side MDX layer simply receives them and injects them into the DOM. This bypasses complex build setups and heavy backend controllers.
 
-## Что можно использовать в .mdx файлах
+## What You Can Use inside .mdx Files
 
-Внутри интерактивных страниц вы можете свободно комбинировать:
-* **Стандартный Markdown** — для форматирования текста, списков, таблиц и ссылок.
-* **Классы Tailwind CSS v4** — для мгновенной стилизации любых HTML-тегов.
-* **React-хуки и компоненты** — встроенные слайдеры (`swiper`), интерактивные графики (`echarts-for-react`) и анимации (`motion`).
-* **Иконки** — готовые наборы из библиотек `lucide-react`, `@phosphor-icons/react` и `react-icons`.
-* **Rust-модули** — вызовы нативной логики через локальный WASM-сервер `mdx-local-server`.
+Inside interactive pages, you can freely mix and match:
+* **Standard Markdown** — for text formatting, bullet lists, tables, and links.
+* **Tailwind CSS v4 Classes** — for instant styling of any HTML tag.
+* **React Hooks and Components** — built-in sliders (`swiper`), interactive charts (`echarts-for-react`), and animations (`motion`).
+* **Icons** — pre-packaged icon sets from `lucide-react`, `@phosphor-icons/react`, and `react-icons`.
+* **Rust Modules** — native backend logic calls via the local WASM server `mdx-local-server`.
 
-## Инструкция
+## Guide
 
-Скачайте архив, распакуйте и отредактируйте файлы с расширением `.mdx` в папке `pages`. **Имена файлов и пути изменять нельзя.**
+Download the archive, extract it, and edit the `.mdx` extension files inside the `pages` folder. **Do not change file names or folder paths.**
 
-### Рекомендуемые редакторы для работы:
+### Recommended Editors:
 
-* **Для быстрого старта (Notepad++)**
-  * Скачайте и установите бесплатный текстовый редактор **Notepad++**.
-  * Кликните правой кнопкой мыши по нужному `.mdx` файлу и выберите **"Edit with Notepad++"**.
-  * Вносите изменения в текст или стили и сохраняйте файл (`Ctrl + S`).
+* **For a Quick Start (Notepad++)**
+  * Download and install the free **Notepad++** text editor.
+  * Right-click the required `.mdx` file and select **"Edit with Notepad++"**.
+  * Modify the text or styles and save your changes (`Ctrl + S`).
 
-* **Продвинутый вариант (VS Code)**
-  * Скачайте и установите **Visual Studio Code (VS Code)**.
-  * Откройте папку с распакованным проектом через меню `File` -> `Open Folder`.
-  * Перейдите во вкладку расширений (`Ctrl + Shift + X`), найдите и установите плагин **MDX** (например, от *Jonathan Rowny*) для подсветки синтаксиса.
-  * Удобно редактируйте файлы, используя встроенный проводник слева.
+* **Advanced Option (VS Code)**
+  * Download and install **Visual Studio Code (VS Code)**.
+  * Open the extracted project directory via `File` -> `Open Folder`.
+  * Go to the Extensions tab (`Ctrl + Shift + X`), search for and install the **MDX** plugin (e.g., by *Jonathan Rowny*) for syntax highlighting.
+  * Easily manage and edit your files using the built-in file explorer on the left sidebar.
  
-* **Вариант редактирования в обычном Notepad**
-  * Если вы не хотите устанавливать специализированные программы, то обычный Блокнот (Notepad), который встроен в Windows, может без проблем открыть и сохранить этот файл. Файлы .mdx — это обычные текстовые файлы, просто с другим расширением. Как это сделать: Кликните по файлу .mdx правой кнопкой мыши. Выберите «Открыть с помощью» (Open with) → «Блокнот» (Notepad). Отредактируйте текст и сохраните изменения комбинацией клавиш Ctrl + S. Важные нюансы: При сохранении обычный Блокнот не испортит структуру кода. В обычном Блокноте весь текст будет одного цвета (без подсветки кода), поэтому в нем легко случайно стереть важную скобку или тег. Будьте аккуратны при редактировании.
+* **Editing with Default Windows Notepad**
+  * If you prefer not to install any third-party software, the default Windows **Notepad** application can easily open and save these files. The `.mdx` files are essentially plain text files with a custom extension. To do this: Right-click the `.mdx` file, select **"Open with"** → **"Notepad"**. Edit the text and save your work via **`Ctrl + S`**. 
+  * **Important note:** Notepad will not damage the underlying code structure upon saving. However, since the built-in Notepad does not support syntax highlighting, all code will appear in a single color. Be extra cautious not to accidentally delete vital brackets, brackets closure, or tags while editing.
 
-Больше на сайте разработчика: https://zhivoglas.com/
-Приятной творческой работы!
+Find more on the developer website: https://zhivoglas.com/
+Enjoy your creative process!
