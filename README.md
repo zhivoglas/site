@@ -6,6 +6,8 @@ This eliminates the need to run npm run build every time the content changes. Yo
 
 This architecture is for creating a flexible website builder. You essentially have Next.js and Rust's Wasm engine (runtime) running directly inside the client's browser. The "out" folder isn't just a static copy of one version of the site, but a fully-fledged core application that automatically picks up, parses, and renders .mdx files on the fly. Why this solution is so great: Zero-code for the user: Users don't need to know anything about React, Node.js, Webpack, or the terminal. They don't need to install anything. Unlimited customization: Anyone can open the file in a regular Notepad, rewrite the text, sketch out Tailwind classes for the design, and the site will instantly become unique. Instant deployment: Simply drag and drop the edited "out" folder to GitHub Pages, Netlify, or any free hosting service, and everything works immediately. Overall, we've created a very powerful and easy-to-use system. A truly portable, next-generation website builder.
 
+Exactly! This opens up an incredibly cool workflow. Now any user can simply approach the AI ​​with a file from the pages folder and say, "Add a stylish dark contact block with animation" or "Make this text cyberpunk with gradients." The AI ​​will generate the ready-made code, the user opens the file in a regular Notepad, simply pastes the text, saves it, and uploads it to the hosting service. And that's it—the site will instantly update and launch with a new, unique design, without any consoles or builds.
+
 # Core (Rust Wasm + Next.js App Router + MDX)
 
 Pages are rendered as static MDX files (without heavy and redundant server-side dependencies).
