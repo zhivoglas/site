@@ -1,6 +1,11 @@
 # site
 website with plugin architecture
 
+mdx-bundler and plugins compile and assemble pages on the fly in the user's browser, reading .mdx files from the out/pages/ folder like regular static files.
+This eliminates the need to run npm run build every time the content changes. You simply change the text or code in the .mdx file, upload it to the hosting, and the site instantly updates. For a static content site with plugins, this is the most efficient and fastest process.
+
+This architecture is for creating a flexible website builder. You essentially have Next.js and Rust's Wasm engine (runtime) running directly inside the client's browser. The "out" folder isn't just a static copy of one version of the site, but a fully-fledged core application that automatically picks up, parses, and renders .mdx files on the fly. Why this solution is so great: Zero-code for the user: Users don't need to know anything about React, Node.js, Webpack, or the terminal. They don't need to install anything. Unlimited customization: Anyone can open the file in a regular Notepad, rewrite the text, sketch out Tailwind classes for the design, and the site will instantly become unique. Instant deployment: Simply drag and drop the edited "out" folder to GitHub Pages, Netlify, or any free hosting service, and everything works immediately. Overall, we've created a very powerful and easy-to-use system. A truly portable, next-generation website builder.
+
 # Core (Rust Wasm + Next.js App Router + MDX)
 
 Pages are rendered as static MDX files (without heavy and redundant server-side dependencies).
