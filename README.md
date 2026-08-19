@@ -1,6 +1,8 @@
 # site
 website with plugin architecture
 
+preview: https://music-tamp.andrej14977777.workers.dev/
+
 mdx-bundler and plugins compile and assemble pages on the fly in the user's browser, reading .mdx files from the out/pages/ folder like regular static files.
 This eliminates the need to run npm run build every time the content changes. You simply change the text or code in the .mdx file, upload it to the hosting, and the site instantly updates. For a static content site with plugins, this is the most efficient and fastest process.
 
