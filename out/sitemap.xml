@@ -1,94 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://zhivoglas.com/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zhivoglas.com/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://zhivoglas.com/ru/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://zhivoglas.com/uk/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zhivoglas.com/" />
-  </url>
-  <url>
-    <loc>https://zhivoglas.com/ru/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zhivoglas.com/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://zhivoglas.com/ru/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://zhivoglas.com/uk/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zhivoglas.com/" />
-  </url>
-  <url>
-    <loc>https://zhivoglas.com/uk/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zhivoglas.com/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://zhivoglas.com/ru/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://zhivoglas.com/uk/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zhivoglas.com/" />
-  </url>
-  <url>
-    <loc>https://zhivoglas.com/contacts/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zhivoglas.com/contacts/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://zhivoglas.com/ru/contacts/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://zhivoglas.com/uk/contacts/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zhivoglas.com/contacts/" />
-  </url>
-  <url>
-    <loc>https://zhivoglas.com/ru/contacts/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zhivoglas.com/contacts/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://zhivoglas.com/ru/contacts/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://zhivoglas.com/uk/contacts/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zhivoglas.com/contacts/" />
-  </url>
-  <url>
-    <loc>https://zhivoglas.com/uk/contacts/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zhivoglas.com/contacts/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://zhivoglas.com/ru/contacts/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://zhivoglas.com/uk/contacts/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zhivoglas.com/contacts/" />
-  </url>
-  <url>
-    <loc>https://zhivoglas.com/about/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zhivoglas.com/about/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://zhivoglas.com/ru/about/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://zhivoglas.com/uk/about/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zhivoglas.com/about/" />
-  </url>
-  <url>
-    <loc>https://zhivoglas.com/ru/about/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zhivoglas.com/about/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://zhivoglas.com/ru/about/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://zhivoglas.com/uk/about/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zhivoglas.com/about/" />
-  </url>
-  <url>
-    <loc>https://zhivoglas.com/uk/about/</loc>
-    <lastmod>2026-08-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://zhivoglas.com/about/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://zhivoglas.com/ru/about/" />
-    <xhtml:link rel="alternate" hreflang="uk" href="https://zhivoglas.com/uk/about/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zhivoglas.com/about/" />
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://zhivoglas.com/</loc>
+<lastmod>2026-08-19T11:22:11.202Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://zhivoglas.com/contacts/</loc>
+<lastmod>2026-08-19T11:22:11.202Z</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://zhivoglas.com/about/</loc>
+<lastmod>2026-08-19T11:22:11.202Z</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.8</priority>
+</url>
 </urlset>
