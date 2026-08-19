@@ -1,0 +1,476 @@
+---
+title: "Название страницы или программы"
+description: "Краткое описание для поисковиков (meta description)"
+keywords: "видеомонтаж, софт, плагины, react, rust"
+image: "https://dl.dropboxusercontent.com/.../cover.webp" # или локальный путь: /images/cover.webp
+schemaType: "soft" # website | video | soft | album | service
+price: "99.99" # Опционально: если есть цена (для soft / service / album)
+currency: "USD" # Опционально: USD, EUR, UAH, RUB
+---
+
+import { useState, useEffect } from 'react';
+export const AnimatedHeader = () => {
+  const titles = [
+    "ПРЕМИАЛЬНЫЙ ДВИЖОК НОВОГО ПОКОЛЕНИЯ",
+    "ЭКСПЕРИМЕНТАЛЬНЫЕ ВЕБ-ТЕХНОЛОГИИ",
+    "ПОЛНАЯ СВОБОДА КАСТОМИЗАЦИИ И ИНТЕРФЕЙСА"
+  ];
+  
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % titles.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [titles.length]);
+
+  return (
+    <div style={{
+      textAlign: 'center',
+      marginBottom: '1rem',
+      minHeight: '2.5rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden'
+    }}>
+      <h1
+        key={index}
+        className="animated-title-text"
+        style={{
+          margin: 0,
+          /* Изменено: clamp(минимум_для_мобилок, адаптивный_размер, максимум_для_пк) */
+          fontSize: 'clamp(0.75rem, 3vw, 1.85rem)',
+          fontWeight: 800,
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          background: 'linear-gradient(90deg, #38bdf8, #fb7185, #34d399, #38bdf8)',
+          backgroundSize: '200% auto',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          animation: 'fadeInSlide 0.6s ease-out forwards, gradientText 4s linear infinite'
+        }}
+      >
+        ✦ {titles[index]} ✦
+      </h1>
+    </div>
+  );
+};
+
+export const HeroSection = () => {
+  return (
+    <div className="glow-frame" style={{ overflow: 'hidden', marginBottom: '1.5rem', background: 'transparent' }}>
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        minHeight: 'clamp(100px, 30vw, 200px)',
+        borderRadius: '0px',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block'
+          }}
+        >
+          <source src="/banners/banner1.webm" type="video/webm" />
+        </video>
+
+        <div style={{
+          position: 'relative',
+          zIndex: 2,
+          textAlign: 'center',
+          padding: '1.5rem',
+          maxWidth: '750px'
+        }}>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const DescriptionSection = () => {
+  return (
+    <div className="glow-frame" style={{ padding: '1.75rem', marginBottom: '1.5rem', borderRadius: '0px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+        <div style={{
+          width: '36px',
+          height: '36px',
+          borderRadius: '0px',
+          background: 'linear-gradient(135deg, #f43f5e, #38bdf8)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#fff',
+          fontWeight: 'bold',
+          fontSize: '1.1rem',
+          flexShrink: 0
+        }}>
+          ✦
+        </div>
+        <h2 style={{ margin: 0, fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: '#f8fafc', fontWeight: 700 }}>
+          Архитектура и возможности
+        </h2>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: '#cbd5e1', lineHeight: '1.7', fontSize: '1rem' }}>
+        <p style={{ margin: 0 }}>
+          Теперь премиальный сайт со сложной программной архитектурой стал доступен! <strong style={{ color: '#38bdf8' }}>Живоглас</strong> создал этот шаблон из самых современных и продвинутых веб-технологий, некоторые из которых являются экспериментальными. На разработку ушло много времени, и перед вами сайт, в котором <strong style={{ color: '#fb7185' }}>шаблоном является сам движок</strong>.
+        </p>
+
+        <p style={{ margin: 0 }}>
+          Всю визуальную составляющую — дизайн, медиаконтент, цветовые акценты и интерфейс — вы можете полностью настроить под себя.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export const AutoCarousel = () => {
+  const slides = [
+    { title: "Интерфейсы", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80", link: "https://github.com" },
+    { title: "Аудиовизуал", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80", link: "https://soundcloud.com" },
+    { title: "WASM Modules", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80", link: "https://rust-lang.org" },
+    { title: "Продакшн", img: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80", link: "https://youtube.com" },
+    { title: "UI/UX Дизайн", img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80", link: "https://dribbble.com" },
+    { title: "PWA Сервисы", img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80", link: "https://vercel.com" },
+    { title: "3D & VFX", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80", link: "https://artstation.com" }
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  return (
+    <div style={{ marginBottom: '1.5rem' }}>
+      <h3 style={{
+        fontSize: '1.1rem',
+        color: '#34d399',
+        marginBottom: '0.8rem',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        textTransform: 'uppercase',
+        letterSpacing: '0.05em'
+      }}>
+        <span>●</span> Живая галерея
+      </h3>
+
+      <div className="responsive-gallery">
+        {[0, 1, 2, 3, 4].map((offset) => {
+          const item = slides[(currentIndex + offset) % slides.length];
+          return (
+            <a
+              key={offset}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glow-frame card-hover"
+              style={{ display: 'block', textDecoration: 'none', background: 'transparent', borderRadius: '0px' }}
+            >
+              <div style={{
+                position: 'relative',
+                aspectRatio: '3/4',
+                borderRadius: '0px',
+                overflow: 'hidden'
+              }}>
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  padding: '10px'
+                }}>
+                  <span style={{ 
+                    color: '#fff', 
+                    fontSize: '0.85rem', 
+                    fontWeight: 600,
+                    textShadow: '0 1px 4px rgba(0,0,0,0.9), 0 0 2px rgba(0,0,0,0.9)'
+                  }}>
+                    {item.title}
+                  </span>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export const GridSection = () => {
+  const items = [
+    { title: "GitHub", link: "https://github.com", img: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=500&q=80" },
+    { title: "Vercel", link: "https://vercel.com", img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80" },
+    { title: "SoundCloud", link: "https://soundcloud.com", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80" },
+    { title: "YouTube", link: "https://youtube.com", img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=500&q=80" },
+    { title: "Figma", link: "https://figma.com", img: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=500&q=80" },
+    { title: "Supabase", link: "https://supabase.com", img: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=500&q=80" },
+    { title: "Google Play", link: "https://play.google.com", img: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=500&q=80" },
+    { title: "ArtStation", link: "https://artstation.com", img: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=500&q=80" }
+  ];
+
+  return (
+    <div style={{ marginBottom: '1.5rem' }}>
+      <h3 style={{
+        fontSize: '1.1rem',
+        color: '#38bdf8',
+        marginBottom: '0.8rem',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        textTransform: 'uppercase',
+        letterSpacing: '0.05em'
+      }}>
+        <span>◈</span> Быстрый доступ
+      </h3>
+
+      <div className="responsive-grid">
+        {items.map((item, idx) => (
+          <a
+            key={idx}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glow-frame card-hover"
+            style={{ display: 'block', textDecoration: 'none', background: 'transparent', borderRadius: '0px' }}
+          >
+            <div style={{
+              position: 'relative',
+              aspectRatio: '16/9',
+              borderRadius: '0px',
+              overflow: 'hidden'
+            }}>
+              <img
+                src={item.img}
+                alt={item.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                alignItems: 'flex-start',
+                padding: '10px'
+              }}>
+                <span style={{ 
+                  color: '#f1f5f9', 
+                  fontWeight: 600, 
+                  fontSize: '0.85rem',
+                  textShadow: '0 1px 4px rgba(0,0,0,0.9), 0 0 2px rgba(0,0,0,0.9)'
+                }}>
+                  {item.title}
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export const FooterInstructionSection = () => {
+  return (
+    <div className="glow-frame" style={{ padding: '1.75rem', borderRadius: '0px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+        <div style={{
+          width: '36px',
+          height: '36px',
+          borderRadius: '0px',
+          background: 'linear-gradient(135deg, #38bdf8, #34d399)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#fff',
+          fontWeight: 'bold',
+          fontSize: '1.1rem',
+          flexShrink: 0
+        }}>
+          🛠️
+        </div>
+        <h2 style={{ margin: 0, fontSize: 'clamp(1.2rem, 2.5vw, 1.55rem)', color: '#f8fafc', fontWeight: 700 }}>
+          Архитектура движка и Инструкция
+        </h2>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', color: '#cbd5e1', lineHeight: '1.7', fontSize: '0.98rem' }}>
+        <p style={{ margin: 0 }}>
+          Архитектура сайта построена на монолитном движке, где логика отображения, клиенты роутинга и обработка компонентов отделены от контента. Это обеспечивает максимальную быстродействие и гибкость.
+        </p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+          <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '1.2rem', borderLeft: '3px solid #38bdf8' }}>
+            <h4 style={{ margin: '0 0 0.5rem 0', color: '#38bdf8', fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span>1.</span> Кастомизация интерфейса
+            </h4>
+            <p style={{ margin: 0, fontSize: '0.92rem', color: '#94a3b8' }}>
+              Вы можете настраивать всю визуальную составляющую — цвета, изображения, текстовые блоки и пропорции — прямо внутри кода интерфейса без необходимости пересборки ядра.
+            </p>
+          </div>
+
+          <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '1.2rem', borderLeft: '3px solid #34d399' }}>
+            <h4 style={{ margin: '0 0 0.5rem 0', color: '#34d399', fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span>2.</span> Редактирование с ИИ
+            </h4>
+            <p style={{ margin: 0, fontSize: '0.92rem', color: '#94a3b8' }}>
+              Скопируйте нужный JSX/TSX блок, передайте его нейросети с вашими требованиями к дизайну, и вставьте готовый код обратно в файл.
+            </p>
+          </div>
+        </div>
+
+        <div style={{
+          background: 'rgba(255, 255, 255, 0.03)',
+          borderLeft: '3px solid #fb7185',
+          padding: '1.2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.6rem'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fb7185', fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <span>📝</span> Редактирование .MDX контента
+          </div>
+          <p style={{ margin: 0, fontSize: '0.95rem', color: '#e2e8f0' }}>
+            Вы можете изменить текст, изображения и ссылки в готовом файле с расширением <code style={{ color: '#38bdf8', background: 'rgba(56, 189, 248, 0.15)', padding: '2px 6px' }}>.mdx</code> в папке <code style={{ color: '#fb7185', background: 'rgba(251, 113, 133, 0.15)', padding: '2px 6px' }}>out/</code>.
+          </p>
+        </div>
+
+        <p style={{ margin: 0, fontSize: '0.92rem', color: '#f8fafc', fontStyle: 'italic', background: 'rgba(244, 63, 94, 0.1)', padding: '0.75rem 1rem' }}>
+          ⚠️ <strong style={{ color: '#fb7185', fontStyle: 'normal' }}>Важно:</strong> Не изменяйте имена и пути файлов! Вы можете полностью менять только их содержимое.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+<div className="animated-bg-container" style={{
+  color: '#e2e8f0',
+  fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  padding: '1.25rem 0.75rem',
+  borderRadius: '0px',
+  maxWidth: '1100px',
+  margin: '0 auto',
+  position: 'relative'
+}}>
+  <style>{`
+    @keyframes animatedGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes gradientText {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .animated-bg-container {
+      background: linear-gradient(-45deg, #0d0714, #120c1c, #1a0b2e, #0f172a);
+      background-size: 400% 400%;
+      animation: animatedGradient 12s ease infinite;
+    }
+
+    @keyframes rotateGlow {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    .glow-frame {
+      position: relative;
+      border-radius: 0px;
+      background: transparent;
+      transition: all 0.4s ease;
+    }
+    .glow-frame::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 0px;
+      background: linear-gradient(45deg, #f43f5e, #fb7185, #38bdf8, #34d399, #f43f5e);
+      background-size: 300% 300%;
+      z-index: -1;
+      opacity: 0.8;
+      animation: rotateGlow 8s linear infinite;
+      transition: opacity 0.3s ease;
+    }
+    .glow-frame:hover::before {
+      opacity: 1;
+      filter: blur(4px);
+    }
+
+    .responsive-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (min-width: 768px) {
+      .responsive-gallery {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+      }
+    }
+
+    .responsive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (min-width: 640px) {
+      .responsive-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+    }
+  `}</style>
+
+  <AnimatedHeader />
+  <HeroSection />
+  <DescriptionSection />
+  <AutoCarousel />
+  <GridSection />
+  <FooterInstructionSection />
+</div>
+
+
