@@ -1,4 +1,0 @@
-:HL["/_next/static/css/b496025c9cd768cc.css","style"]
-:HL["/_next/static/css/09d7b695215fc681.css","style"]
-:HL["/_next/static/css/d09661414dfa825a.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4180,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"vuLPpavKD7OKc_OBuX2uB"}
